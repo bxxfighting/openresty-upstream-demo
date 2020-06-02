@@ -26,6 +26,10 @@ curl "127.0.0.1:8080/upstream/servers?upstream_name=buxingxing.com&status=up"
 ```
 curl "127.0.0.1:8080/upstream/servers?upstream_name=buxingxing.com&status=down"
 ```
+* 获取全部机器列表
+```
+curl "127.0.0.1:8080/upstream/servers?upstream_name=buxingxing.com"
+```
 
 ### 操作机器上下线
 * 下线机器
