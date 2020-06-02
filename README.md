@@ -1,8 +1,15 @@
 ### 安装openresty
 [官方安装文档](https://openresty.org/cn/installation.html)  
-我使用mac安装```brew install openresty/brew/openresty```安装到了目录/usr/local/opt/openresty下面  
-我本机原本没有安装nginx，在安装openresty时自己安装了nginx并且运行了，我手动kill掉了nginx  
-并且在.zshrc中指定了nginx/sbin：```export PATH=/usr/local/opt/openresty/nginx/sbin:$PATH```  
+我使用mac安装  
+```
+brew install openresty/brew/openresty
+```
+安装到了目录/usr/local/opt/openresty下面    
+我本机原本没有安装nginx，在安装openresty时自动安装了nginx并且运行了，我手动kill掉了nginx  
+并且在.zshrc(因为我用的zsh)中指定了nginx/sbin：  
+```
+export PATH=/usr/local/opt/openresty/nginx/sbin:$PATH
+```
 
 ### 运行nginx
 ```
