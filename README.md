@@ -16,6 +16,8 @@ export PATH=/usr/local/opt/openresty/nginx/sbin:$PATH
 mkdir logs
 nginx -p `pwd`/ -c nginx.conf
 ```
+> 这里nginx.conf配置文件内容中，listen 8080下有三个location，这就是我自己写的三个接口用来操作upstream  
+> 主要是参考[lua-upstream-nginx-module](https://github.com/openresty/lua-upstream-nginx-module)  
 
 ### 获取upstream下机器列表
 * 在线状态机器列表
