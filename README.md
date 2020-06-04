@@ -45,3 +45,28 @@ curl "127.0.0.1:8080/upstream/servers/down?upstream_name=buxingxing.com&servers=
 curl "127.0.0.1:8080/upstream/servers/up?upstream_name=buxingxing.com&servers=127.0.0.1:8001,127.0.0.1:8002"
 ```
 > 此时调用获取upstream下机器列表，可以查看变化  
+
+
+### 使用POST方法进行上下线操作
+一般我们调用接口进行数据变化时，都是通过POST方法，因此，改造nginx.conf的内容到nginx.json.conf文件  
+* 下线机器
+```
+curl -H "Content-Type:application/json" -X POST -d '{"upstream_name": "waylonglong.com", "servers": "127.0.0.1:9001,127.0.0.1:9002"}' "127.0.0.1:8080/upstream/servers/down"
+```
+* 上线机器
+```
+curl -H "Content-Type:application/json" -X POST -d '{"upstream_name": "waylonglong.com", "servers": "127.0.0.1:9001,127.0.0.1:9002"}' "127.0.0.1:8080/upstream/servers/up"
+```
+返回值内容:  
+```
+{
+    "msg": "ok",
+    "data": {
+        "servers": [
+            "127.0.0.1:9001",
+            "127.0.0.1:9002"
+        ]
+    },
+    "code": 0
+}
+```
