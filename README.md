@@ -49,7 +49,7 @@ curl "127.0.0.1:8080/upstream/servers/up?upstream_name=buxingxing.com&servers=12
 
 ### 使用POST方法进行上下线操作
 一般我们调用接口进行数据变化时，都是通过POST方法，因此，改造nginx.conf的内容到nginx.json.conf文件  
-并且可以通过token做简单的权限验证  
+并且可以通过token做简单的权限验证, 以及ip白名单限制, 在使用前请先根据实际设置token及white_list的值  
 * 先关闭原来的nginx在以新的配置文件启动
 ```
 nginx -s stop
