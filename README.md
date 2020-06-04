@@ -49,13 +49,19 @@ curl "127.0.0.1:8080/upstream/servers/up?upstream_name=buxingxing.com&servers=12
 
 ### 使用POST方法进行上下线操作
 一般我们调用接口进行数据变化时，都是通过POST方法，因此，改造nginx.conf的内容到nginx.json.conf文件  
+并且可以通过token做简单的权限验证  
+
+* 在线状态机器列表
+```
+curl -H "token:123456" "127.0.0.1:8080/upstream/servers?upstream_name=buxingxing.com&status=up"
+```
 * 下线机器
 ```
-curl -H "Content-Type:application/json" -X POST -d '{"upstream_name": "waylonglong.com", "servers": "127.0.0.1:9001,127.0.0.1:9002"}' "127.0.0.1:8080/upstream/servers/down"
+curl -H "Content-Type:application/json" -H "token:123456" -X POST -d '{"upstream_name": "waylonglong.com", "servers": "127.0.0.1:9001,127.0.0.1:9002"}' "127.0.0.1:8080/upstream/servers/down"
 ```
 * 上线机器
 ```
-curl -H "Content-Type:application/json" -X POST -d '{"upstream_name": "waylonglong.com", "servers": "127.0.0.1:9001,127.0.0.1:9002"}' "127.0.0.1:8080/upstream/servers/up"
+curl -H "Content-Type:application/json" -H "token:123456" -X POST -d '{"upstream_name": "waylonglong.com", "servers": "127.0.0.1:9001,127.0.0.1:9002"}' "127.0.0.1:8080/upstream/servers/up"
 ```
 返回值内容:  
 ```
